@@ -1,5 +1,5 @@
 import os
-
+from getResponse import getResponse
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
@@ -19,17 +19,33 @@ def favicon():
 @app.route('/hello', methods=['POST'])
 def hello():
    name = request.form.get('name')
-   button = request.form.get('button_id')
+   type = request.form.get('button_id')
    denomination = request.form.get('denomination')
    
-   print('Request for hello page received with name=%s' % name)
-   print('Request for hello page received with button=%s' % button)
-   print('Request for hello page received with denomination=%s' % denomination)
+   #print('Request for hello page received with name=%s' % name)
+   #print('Request for hello page received with button=%s' % type)
+   #print('Request for hello page received with denomination=%s' % denomination)
+   
+   res = getResponse(name, denomination, type) 
+   
+   res = res.replace("\n", "<br>")
+   
+   #for i in range(200):
+   #    print (res[i] + ", " +str(ord(res[i])))
+   
+   
+   #res2 = res.replace("\n", "<br>")
+   
+   #print(res2)
 
+   if type == "blessing":
+       heading = "Here is your blessing"
+   else:
+       heading = "Here is your absolution"
 
    if name:
 
-       return render_template('hello.html', name = name)
+       return render_template('hello.html',heading=heading, name = res)
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))

@@ -45,26 +45,29 @@
               class="form-control"
               id="name"
               name="name"
-              style="max-width: 256px"
+              style="max-width: 400px"
               rows="5"
             ></textarea>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
-            <button type="submit" name="button_id" id="absolution" value="abs" class="btn btn-primary btn-lg px-4 gap-3">
-              Offer Absolution $1
+            <button type="submit" name="button_id" id="absolution" value="absolution" class="btn btn-primary btn-lg px-4 gap-3">
+              Offer Absolution
             </button>
 
-            <button type="submit" id="blessing" name="button_id" value="bls" class="btn btn-primary btn-lg px-4 gap-3">
-              Offer A Blessing $5
+            <button type="submit" id="blessing" name="button_id" value="blessing" class="btn btn-primary btn-lg px-4 gap-3">
+              Offer A Blessing
             </button>
           </div>
 
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center w-25 my-5">
-          <select class="form-select" id="denomination" name="denomination" form-select-sm aria-label="Default select example">
-            <option selected>Two</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <div class="row text-center justify-content-center">
+          <select class="form-select" id="denomination" name="denomination" 
+           style="width:200px" form-select-sm aria-label="Default select example">
+            <option selected>Mystic</option>
+            <option value="Religious Leader">Any denomination</option>
+            <option value="Priest">Catholic</option>
+            <option value="Pastor">Protestant</option>
+            <option value="Rabbi">Jewish</option>
+            <option value="Mystic">Mystic</option>
           </select>
         </div>
 
