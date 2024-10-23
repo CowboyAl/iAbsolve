@@ -33,10 +33,9 @@
       <form method="post" action="{{url_for('hello')}}">
         <div class="col-md-6 mx-auto text-center">
           <label for="name" class="form-label fw-bold fs-5"
-            >What is your sin?
+            >What is your sin or act?
           </label>
           
-          <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
           <div
             class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1"
           >
@@ -50,11 +49,17 @@
             ></textarea>
           </div>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
-            <button type="submit" name="button_id" id="absolution" value="absolution" class="btn btn-primary btn-lg px-4 gap-3">
+            <button type="submit" name="button_id" id="absolution" 
+            value="absolution" 
+            class="btn btn-primary btn-lg px-4 gap-3"
+            onClick="this.form.submit();this.disabled=true; this.innerText='Absolving …';">
               Offer Absolution
             </button>
 
-            <button type="submit" id="blessing" name="button_id" value="blessing" class="btn btn-primary btn-lg px-4 gap-3">
+            <button type="submit" id="blessing" name="button_id" 
+            value="blessing" 
+            class="btn btn-primary btn-lg px-4 gap-3"
+            onClick="this.innerText='Blessing …';">
               Offer A Blessing
             </button>
           </div>

@@ -7,15 +7,20 @@ def getResponse(name, denomination, type):
     client = OpenAI()
     OpenAI.api_key = os.environ["OPENAI_API_KEY"] ;
     
-    outputType = "an absolution";
-    if type == "blessing":
-        outputType = "a blessing";
+    #outputType = "an absolution";
+    #if type == "blessing":
+    #    outputType = "a blessing";
         
-    #"content": "Write a blessing for someone who committed the sin of adultery and reply in the first person"
-
     
     role = "You are a " + denomination;
-    content = "Write " + outputType + " for someone who committed the act of " + name + " and write the response in the first person";
+    
+    content = "";
+    if type == "blessing":
+        content = "Write a blessing for someone for the act of " + name + " and write the response in the first person";
+    else:
+        content = "Write an absolution for someone for someone who committed the sin of " + name + " and write the response in the first person";
+    
+    #content = "Write " + outputType + " for someone who committed the act of " + name + " and write the response in the first person";
 
     print("role - " +role);
     print("content - " + content);
