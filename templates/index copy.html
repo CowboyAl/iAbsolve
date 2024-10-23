@@ -15,7 +15,6 @@
       rel="shortcut icon"
       href="{{ url_for('static', filename='favicon.ico') }}"
     />
-
   </head>
 
   <body>
@@ -31,12 +30,11 @@
         <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <h1 class="display-6 fw-bold text-primary">Absolution</h1>
       </div>
-      <form method="post" action="{{url_for('hello')}}" onsubmit="return disableButtons()">
+      <form method="post" action="{{url_for('hello')}}">
         <div class="col-md-6 mx-auto text-center">
           <label for="name" class="form-label fw-bold fs-5">
             Confess here
           </label>
-          &nbsp;Your confession is confidential
           
           <div
             class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
@@ -52,13 +50,15 @@
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-5">
             <button type="submit" name="button_id" id="absolution" 
             value="absolution" 
-            class="btn btn-primary btn-lg px-4 gap-3">
+            class="btn btn-primary btn-lg px-4 gap-3"
+            onClick="this.form.submit();this.disabled=true; this.innerText='Absolving …';">
               Absolve Me
             </button>
 
             <button type="submit" id="blessing" name="button_id" 
             value="blessing" 
-            class="btn btn-primary btn-lg px-4 gap-3">
+            class="btn btn-primary btn-lg px-4 gap-3"
+            onClick="this.form.submit();this.disabled=true; this.innerText='Blessing …';">
               Bless Me
             </button>
           </div>
@@ -77,19 +77,6 @@
         </div>
 
       </form>
-<script>
-  function disableButtons() {
-    var btn = document.getElementById('blessing');
-        btn.innerText = '...'
-    btn = document.getElementById('absolution');
-        btn.innerText = '...'
-    return true;
-  }
-</script>
-
-
-
-
     </main>
   </body>
 </html>
